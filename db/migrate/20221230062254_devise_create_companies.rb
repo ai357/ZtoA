@@ -34,6 +34,8 @@ class DeviseCreateCompanies < ActiveRecord::Migration[6.1]
 
 
       t.timestamps null: false
+      
+      t.string :name
     end
 
     add_index :companies, :email,                unique: true
