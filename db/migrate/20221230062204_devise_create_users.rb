@@ -34,13 +34,13 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
 
       t.timestamps null: false
-      
+
       t.integer :company_id
       t.string :number
       t.string :expected
       t.string :birth
       t.string :sex
-      t.string :is_deleted
+      t.boolean :is_deleted, null: false, default: false
       t.string :status
     end
 

@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   #企業用
   devise_for :companies, controllers: {
-    registrations: "company/registraitons",
+    registrations: "company/registrations",
     sessions: 'company/sessions'
   }
 
   #利用者用
   devise_for :users, controllers: {
-    registrations: "user/registraitons",
+    registrations: "user/registrations",
     sessions: "user/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

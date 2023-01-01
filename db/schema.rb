@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_12_30_063525) do
     t.string "expected"
     t.string "birth"
     t.string "sex"
-    t.string "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.string "status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
