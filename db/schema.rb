@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_12_30_063525) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "company_id"
+    t.string "name"
     t.string "number"
     t.string "expected"
     t.string "birth"

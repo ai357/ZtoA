@@ -36,6 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.timestamps null: false
 
       t.integer :company_id
+      t.string :name
       t.string :number
       t.string :expected
       t.string :birth
