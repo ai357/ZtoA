@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_12_30_063525) do
   create_table "document_masters", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "documents", force: :cascade do |t|
