@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :company do
+    get 'user/index'
+  end
   get 'homes/top'
   #企業用
   devise_for :companies, controllers: {
