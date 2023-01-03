@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'homes/top'
   #企業用
   devise_for :companies, controllers: {
     registrations: "company/registrations",
