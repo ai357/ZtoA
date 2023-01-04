@@ -52,7 +52,7 @@ class Company::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-     company_user_index_path(resource)
+     company_user_index_path
    end
 
   # The path used after sign up for inactive accounts.

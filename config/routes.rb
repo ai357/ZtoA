@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
 
   namespace :user do
-  resources :users
+  resources :users, except: [:new, :index]
   resources :posts
   resources :comments
   root to: 'homes#top'

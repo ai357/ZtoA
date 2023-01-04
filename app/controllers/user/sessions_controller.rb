@@ -24,18 +24,24 @@ class User::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
+
+  def after_sign_in_path_for(resource)
+    # resourceにはユーザーの情報が入っているので、show画面が遷移先の場合はresourceがないとエラーになる。
+    user_user_path(resource)
+  end
+
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
-  
-  
-  
+
+
+
   before_action :user_state, only: [:create]
 
 
   protected
 
+  # ログイン時に退会済みかをチェックする
   def user_state
     @user = User.find_by(email: params[:user][:email])
     return if !@user
@@ -47,5 +53,5 @@ class User::SessionsController < Devise::SessionsController
       end
     end
   end
-  
+
 end

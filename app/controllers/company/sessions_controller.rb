@@ -19,7 +19,12 @@ class Company::SessionsController < Devise::SessionsController
   # end
 
   # protected
-  
+
+  def after_sign_in_path_for(resource)
+    company_user_index_path
+  end
+
+
   def after_sign_out_path_for(resource)
     new_company_session_path
   end

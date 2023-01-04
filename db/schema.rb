@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2023_01_04_062754) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.integer "user_id"
+    t.text "to_do"
+    t.datetime "start_time"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,20 +1,32 @@
 <div class="container">
-  <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+  <!--<div class="row mx-auto">-->
+    <div>
 
-      <h2>ＺtoＡへようこそ</h2>
-        <p>
-          人生を共に歩む家族が増え、新たなスタートを迎える。</br>
-          ZtoAは出産・育児休業の申請をサポートするスケジュール管理サイトです。
+      <h2 class="text-center">ＺtoＡへようこそ</h2>
+        <p class="text-center">
+          人生を共に歩む家族が増え、新たなスタートを迎える</br>
+          取得者と企業の二人三脚で行う産休・育休申請をＺtoＡがサポートします。
         </p>
-        <div class="btn-wrapper col-10 mx-auto">
+        <div class="col-10 mx-auto">
           <div class="row">
-            <%= link_to "企業担当の方はこちらから新規登録", new_company_registration_path, class:"btn btn-success" %></br>
-            <%= link_to "企業担当の方はこちらからログイン", new_company_session_path %></br></br>
-            <%= link_to "利用者の方はこちらから新規登録",  new_user_registration_path %></br>
-            <%= link_to "利用者の方はこちらからログイン",  new_user_session_path %></br>
+            <div class="col-5 mx-auto">
+                <p>企業担当の方</p>
+              <div>
+                <%= link_to "こちらから新規登録", new_company_registration_path, class:"btn btn-success" %>
+                <%= link_to "こちらからログイン", new_company_session_path, class:"btn btn-info" %>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-5 mx-auto">
+              <p>利用者の方</p>
+            <div>
+              <%= link_to "こちらから新規登録",  new_user_registration_path, class:"btn btn-success" %>
+              <%= link_to "こちらからログイン",  new_user_session_path, class:"btn btn-info" %>
+            </div>
+          </div>
           </div>
         </div>
     </div>
-  </div>
+  <!--</div>-->
 </div>
