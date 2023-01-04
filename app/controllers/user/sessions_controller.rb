@@ -24,4 +24,28 @@ class User::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end
+  
+  
+  
+  before_action :user_state, only: [:create]
+
+
+  protected
+
+  def user_state
+    @user = User.find_by(email: params[:user][:email])
+    return if !@user
+
+    if @user.valid_password?(params[:customer][:password])
+      if @user.is_deleted == true
+        redirect_to new_user_registration_path
+      else @user.is_deleted == false
+      end
+    end
+  end
+  
 end

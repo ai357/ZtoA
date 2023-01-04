@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  namespace :company do
-    get 'user/index'
-  end
-  get 'homes/top'
+
+
+
   #企業用
   devise_for :companies, controllers: {
     registrations: "company/registrations",
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
 
 
   namespace :company do
+  get 'user/index'
   resources :schedules
   resources :posts
   resources :comments
@@ -33,6 +33,6 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   end
 
-
+  get 'homes/top'
 
 end
