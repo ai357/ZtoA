@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :company do
   get 'user/index'
+  get 'user/show'
   get "/my_page" => "company#show", as: "company"
   resources :schedules
   resources :posts
