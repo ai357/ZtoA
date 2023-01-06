@@ -29,16 +29,18 @@ Rails.application.routes.draw do
 
 
   namespace :user do
-  get "/my_page" => "user#show", as: "user"
   get "/information/edit" => "users#edit"
+  get "/my_page" => "user#show", as: "user"
   get "/unsubscribe" => "users#unsubscribe"
   patch "/withdraw" => "users#withdraw"
   patch "/information" => "users#update"
-  resources :users, except: [:new, :index]
+  resources :users, except: [:new, :index, :show]
   resources :posts
   resources :comments
   # root to: 'homes#top'
   end
+  
+
 
   #get 'homes/top'
   root to: 'homes#top'

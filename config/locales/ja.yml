@@ -2,7 +2,7 @@
     enums: # enumの設定を行う
       user:
         status:
-          before-maternity-leave:　"休業前"
+          before-leave:　"休業前"
           maternity-leave: "出産休業中"
           childcare-leave: "育児休業中"
           childcare: "育児中"
