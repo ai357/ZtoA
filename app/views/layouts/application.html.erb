@@ -6,10 +6,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  <header>
+    <% if company_signed_in? %>
+    <%= render 'layouts/header_company' %>
+    <% elsif user_signed_in? %>
+    <%= render 'layouts/header_user' %>
+    <% else %>
+    <%= render 'layouts/header_logout' %>
+    <% end %>
+  </header>
+
 
   <body>
     <%= yield %>

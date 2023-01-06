@@ -12,7 +12,7 @@ class Company::UserController < ApplicationController
   private
   
   def user_params
-  params.require(:user).permit(:name, :number, :expected, :birth, )
+  params.require(:user).permit(:name, :number, :expected, :birth, :email )
   end
   
 end

@@ -19,20 +19,27 @@ Rails.application.routes.draw do
 
   namespace :company do
   get 'user/index'
+  get "/my_page" => "company#show", as: "company"
   resources :schedules
   resources :posts
   resources :comments
-  root to: 'homes#top'
+  # root to: 'homes#top'
   end
 
 
   namespace :user do
+  get "/my_page" => "user#show", as: "user"
+  get "/information/edit" => "users#edit"
+  get "/unsubscribe" => "users#unsubscribe"
+  patch "/withdraw" => "users#withdraw"
+  patch "/information" => "users#update"
   resources :users, except: [:new, :index]
   resources :posts
   resources :comments
-  root to: 'homes#top'
+  # root to: 'homes#top'
   end
 
-  get 'homes/top'
+  #get 'homes/top'
+  root to: 'homes#top'
 
 end

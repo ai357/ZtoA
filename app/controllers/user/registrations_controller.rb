@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User::RegistrationsController < Devise::RegistrationsController
-   before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -10,9 +10,13 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  #企業アカウントから利用者アカウントにログインできないように、devise機能を使わずに利用者アカウントを作成する。
+  def create
+    # super
+    User.create(user_params)
+    redirect_to company_user_index_path
+    # byebug
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,12 +42,16 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-   def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :expected, :email])
-   end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :expected, :email])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
