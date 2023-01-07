@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
-  namespace :company do
+  namespace :companies do
   get 'user/index'
   get 'user/show'
   get "/my_page" => "company#show", as: "company"
@@ -28,9 +28,9 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :user do
+  namespace :users do
   get "/information/edit" => "users#edit"
-  get "/my_page" => "user#show", as: "user"
+  get "/my_page" => "users#show", as: "user"
   get "/unsubscribe" => "users#unsubscribe"
   patch "/withdraw" => "users#withdraw"
   patch "/information" => "users#update"
