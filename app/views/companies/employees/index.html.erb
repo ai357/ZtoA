@@ -1,7 +1,8 @@
+
 <div class="container">
   <div class="row">
     <div class="col-12 dflex flex right">
-        <%= link_to "社員のアカウントを発行する",  new_user_registration_path, class:"btn btn-success" %>
+        <%= link_to "社員のアカウントを発行する",  new_companies_employee_path, class:"btn btn-success" %>
     </div>
   </div>  
 
@@ -10,22 +11,22 @@
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-          <th>User</th>
+          <th>employee</th>
           <th>Status</th>
           <th colspan="3"></th>
         </tr>
       </thead>
 
       <tbody>
-        <% @user.each do |user| %>
+        <% @employees.each do |employee| %>
         <tr>
           <td>
-            <%= link_to company_user_show_path(user.id) do %>
-              <%= user.name %>
+            <%= link_to companies_employee_path(employee) do %>
+              <%= employee.name %>
             <% end %>
           </td>
           <td>
-            <%= user.status %>
+            <%= employee.status_i18n %>
           </td>
         </tr>
         <% end %>

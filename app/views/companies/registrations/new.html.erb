@@ -2,7 +2,7 @@
   <h2>企業 新規登録</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "company/shared/error_messages", resource: resource %>
+    <%= render "companies/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.label :"部署名または担当者名" %><br />
@@ -32,5 +32,5 @@
     </div>
   <% end %>
 
-  <%= render "company/shared/links" %>
+  <%= render "companies/shared/links" %>
 </div>

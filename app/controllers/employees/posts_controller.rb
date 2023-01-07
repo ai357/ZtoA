@@ -1,42 +1,33 @@
 class Employees::PostsController < ApplicationController
-  
-  def new
-    @post = Post.new
+  before_action :set_employee, only: %i[ show edit update destroy ]
+
+  def edit
   end
 
-  def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-      redirect_to post_path(@post.id), notice: "You have created book successfully."
+
+  def update
+    if @employee.update(employee_params)
+      redirect_to companies_employee_url(@employee), notice: "編集しました"
     else
-      @posts = Post.all
-      @user = current_user
-      render :index
+      flash.now[:alert] = "編集に失敗しました"
+      render :edit
     end
   end
 
-  def index
-    @post = Post.new
-    @posts = Post.all
-    @user = current_user
-  end
-
-  def show
-    @post = Post.find(params[:id])
-    @user = User.find(@post.user_id)
-  end
-
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+    @employes.update(is_daleted: true)
+    redirect_to companies_employees_url, notice: "削除しました"
   end
 
   private
+    def set_employee
+      @employee = Employee.find(params[:id])
+    end
+    
+    
 
-  def posts_params
-    params.require(:post).permit(:title, :body)
-
-  end
+    def employee_params
+      params.require(:employee).permit(:name, :email, :password)
+    end
 end
+

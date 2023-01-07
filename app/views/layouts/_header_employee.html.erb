@@ -9,17 +9,17 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li>
-          <%= link_to user_user_path, class:"nav-link text-dark" do %>
+          <%= link_to employees_employee_path, class:"nav-link text-dark" do %>
             マイページ
           <% end %>
         </li>
         <li>
-          <%= link_to user_posts_path, class:"nav-link text-dark" do %>
+          <%= link_to employees_posts_path, class:"nav-link text-dark" do %>
             Post
           <% end %>
         </li>
         <li>
-          <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-dark" do %>
+          <%= link_to destroy_employee_session_path, method: :delete, class:"nav-link text-dark" do %>
             ログアウト
           <% end %>
         </li>

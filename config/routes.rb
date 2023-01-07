@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-
-
-
   #企業用
   devise_for :companies, controllers: {
-    registrations: "company/registrations",
-    sessions: 'company/sessions'
+    registrations: "companies/registrations",
+    sessions: 'companies/sessions'
   }
 
   #利用者用
@@ -18,31 +15,29 @@ Rails.application.routes.draw do
 
 
   namespace :companies do
-  get 'user/index'
-  get 'user/show'
-  get "/my_page" => "company#show", as: "company"
-  resources :schedules
-  resources :posts
-  resources :comments
-  # root to: 'homes#top'
+    resources :employees
+    get 'user/index'
+    get 'user/show'
+    get "/my_page" => "company#show", as: "company"
+    resources :schedules
+    resources :posts
+    resources :comments
+    # root to: 'homes#top'
   end
-
 
   namespace :employees do
-  get "/information/edit" => "users#edit"
-  get "/my_page" => "users#show", as: "user"
-  get "/unsubscribe" => "users#unsubscribe"
-  patch "/withdraw" => "users#withdraw"
-  patch "/information" => "users#update"
-  resources :users, except: [:new, :index, :show]
-  resources :posts
-  resources :comments
-  # root to: 'homes#top'
+    get "/information/edit" => "employees#edit"
+    get "/my_page" => "employees#show", as: "employee"
+    get "/unsubscribe" => "employees#unsubscribe"
+    patch "/withdraw" => "employees#withdraw"
+    patch "/information" => "employees#update"
+    resources :posts
+    resources :comments
+    # root to: 'homes#top'
   end
-
-
-
+  scope module: :employees do
+    resources :employees, except: [:new, :index, :show]
+  end
   #get 'homes/top'
   root to: 'homes#top'
-
 end

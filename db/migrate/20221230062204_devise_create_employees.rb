@@ -42,7 +42,7 @@ class DeviseCreateEmployees < ActiveRecord::Migration[6.1]
       t.string :birth
       t.string :sex
       t.boolean :is_deleted, null: false, default: false
-      t.string :status
+      t.integer :status, null: false, default: 0
       t.string :baby_name
     end
 

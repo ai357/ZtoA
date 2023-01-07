@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-3 col-sm-6">
+      <h1>Editing Companies User</h1>
+      
+      <%= form_with(model: @employee, url: companies_employee_path(@employee)) do |form| %>
+        <%= render 'form', form: form, submit: "編集する" %>
+      <% end %>
+      <%= link_to 'Show', companies_employee_path(@employee) %>
+      <%= link_to '登録社員一覧', companies_employees_path %>
+    </div>
+  </div>
+</div>
