@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   }
 
   #利用者用
-  devise_for :users, controllers: {
-    registrations: "user/registrations",
-    sessions: "user/sessions"
+  devise_for :employees, controllers: {
+    registrations: "employees/registrations",
+    sessions: "employees/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
 
-  namespace :users do
+  namespace :employees do
   get "/information/edit" => "users#edit"
   get "/my_page" => "users#show", as: "user"
   get "/unsubscribe" => "users#unsubscribe"
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :comments
   # root to: 'homes#top'
   end
-  
+
 
 
   #get 'homes/top'
