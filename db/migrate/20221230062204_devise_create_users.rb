@@ -43,6 +43,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :sex
       t.boolean :is_deleted, null: false, default: false
       t.string :status
+      t.string :baby_name
     end
 
     add_index :users, :email,                unique: true
