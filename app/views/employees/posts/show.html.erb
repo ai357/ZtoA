@@ -1,0 +1,42 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'employees/left', employee: @employee %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Post detail</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <td>
+              <%= link_to user_path(@employee.id) do %>
+                <%= image_tag @employee.get_profile_image(100,100) %><br>
+                <%= @employee.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@post.id) do %>
+                  <%= @post.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= @post.body %>
+            </td>
+            <td>
+              <% if @post.user == current_user %>
+                <%= link_to "Edit", edit_book_path(@post), class:"btn btn-success" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+                <%= link_to "Destroy", post_path(@post), method: :delete, class:"btn btn-danger"  %>
+              <% end %>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

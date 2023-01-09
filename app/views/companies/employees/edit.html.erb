@@ -1,12 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="offset-sm-3 col-sm-6">
-      <h1>Editing Companies User</h1>
+      <h2>利用者情報編集</h2>
       
       <%= form_with(model: @employee, url: companies_employee_path(@employee)) do |form| %>
         <%= render 'form', form: form, submit: "編集する" %>
+        
+        <div class="form-group">
+          <%= form.label "名前"  %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+        
+        
+        
+        
+
       <% end %>
-      <%= link_to 'Show', companies_employee_path(@employee) %>
+      <%= link_to '戻る', companies_employee_path(@employee) %>
       <%= link_to '登録社員一覧', companies_employees_path %>
     </div>
   </div>

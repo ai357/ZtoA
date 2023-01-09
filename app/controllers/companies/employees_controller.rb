@@ -27,7 +27,8 @@ class Companies::EmployeesController < ApplicationController
   end
 
   def update
-    if @employee.update_without_current_password(employee_params)
+    @employee.update_without_current_password(employee_params)
+    if @employee.save
       redirect_to companies_employee_url(@employee), notice: "編集しました"
     else
       flash.now[:alert] = "編集に失敗しました"
@@ -41,10 +42,10 @@ class Companies::EmployeesController < ApplicationController
   end
 
   private
+  
     def set_employee
       @employee = Employee.find(params[:id])
     end
-
 
     def employee_params
       params.require(:employee).permit(:name, :email, :password, :status)

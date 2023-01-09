@@ -5,14 +5,14 @@
       <tr></tr>
       <tr>
         <th>name</th>
-        <th><%= @company.name %></th>
+        <th><%= @employee.name %></th>
       </tr>
     </tbody>
   </table>
 
 
 <h2 class="mt-3">New Post</h2>
-<%= form_with model: @post do |f| %>
+<%= form_with model: @employee do |f| %>
   <p class="title">Title</p>
   <%= f.text_field :title %>
   <p class="body">Main</p>

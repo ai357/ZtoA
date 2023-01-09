@@ -6,12 +6,12 @@ class Companies::PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    @post.company_id = current_user.id
+    @post.company_id = current_company.id
     if @post.save
       redirect_to post_path(@post.id), notice: "You have created book successfully."
     else
       @posts = Post.all
-      @company = current_user
+      @company = current_company
       render :index
     end  
   end
@@ -19,7 +19,7 @@ class Companies::PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all
-    @company = current_user
+    @company = current_company
   end
   
   def show

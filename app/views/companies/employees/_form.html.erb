@@ -2,7 +2,7 @@
         <% if form.object.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(form.object.errors.count, "error") %> prohibited this employee from being saved:</h2>
-      
+
             <ul>
               <% form.object.errors.each do |error| %>
                 <li><%= error.full_message %></li>
@@ -10,30 +10,29 @@
             </ul>
           </div>
         <% end %>
-      
+
         <div class="form-group">
           <%= form.label :name %>
           <%= form.text_field :name, class: "form-control" %>
         </div>
-      
+
         <div class="form-group">
           <%= form.label :email %>
           <%= form.text_field :email, class: "form-control" %>
         </div>
-      
+
         <div class="form-group">
           <%= form.label :password %>
           <%= form.text_field :password, class: "form-control" %>
         </div>
-        
+
         <% if !form.object.new_record? %>
           <div class="form-group">
-            <%= form.label :status %>
-            <%= form.select :status, Employee.statuses.keys.map{|k, v| [I18n.t("enums.employee.status.#{k}"), k]}, {}, {class: "form-control"} %>
+            <%= form.select :status %> Employee.statuses.keys.map{|k, v| [i18n.t("enums.employees.#{k}"), k]}, {}, {class: "form-control" %>
           </div>
         <% end %>
-      
+
         <div class="form-group text-center">
           <%= form.submit submit, class: "btn btn-primary" %>
         </div>
-        
+
