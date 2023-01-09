@@ -27,15 +27,15 @@
           </tr>
         </thead>
         <tbody>
-          <% @posts.each do |post| %>
+          <% @posts.each do |posts| %>
           <tr>
             <td>
               <%= link_to post_path(post.id) do %>
-                <%= post.title %>
+                <%= posts.title %>
               <% end %>
             </td>
             <td>
-              <%= post.body %>
+              <%= posts.body %>
             </td>
           </tr>
           <% end %>

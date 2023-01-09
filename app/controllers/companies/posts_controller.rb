@@ -5,7 +5,7 @@ class Companies::PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(posts_params)
     @post.company_id = current_company.id
     if @post.save
       redirect_to post_path(@post.id), notice: "You have created book successfully."
