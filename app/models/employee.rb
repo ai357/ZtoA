@@ -34,10 +34,10 @@ end
 #
 #  id                     :integer          not null, primary key
 #  baby_name              :string
-#  birth                  :string
+#  birth                  :date
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  expected               :string
+#  expected               :date
 #  is_deleted             :boolean          default(FALSE), not null
 #  name                   :string
 #  number                 :string

@@ -42,7 +42,7 @@ class Companies::EmployeesController < ApplicationController
   end
 
   private
-  
+
     def set_employee
       @employee = Employee.find(params[:id])
     end

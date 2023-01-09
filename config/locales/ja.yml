@@ -13,7 +13,7 @@ ja:
     attributes:
       employee:
         name: 名前
-        email: e-mail
+        email: メールアドレス
         password: パスワード
     errors:
       messages:

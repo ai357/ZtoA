@@ -38,8 +38,8 @@ class DeviseCreateEmployees < ActiveRecord::Migration[6.1]
       t.integer :company_id
       t.string :name
       t.string :number
-      t.string :expected
-      t.string :birth
+      t.date :expected
+      t.date :birth
       t.string :sex
       t.boolean :is_deleted, null: false, default: false
       t.integer :status, null: false, default: 0

@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2023_01_04_062754) do
     t.integer "company_id"
     t.string "name"
     t.string "number"
-    t.string "expected"
-    t.string "birth"
+    t.date "expected"
+    t.date "birth"
     t.string "sex"
     t.boolean "is_deleted", default: false, null: false
     t.integer "status", default: 0, null: false
