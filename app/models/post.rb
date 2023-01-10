@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 
-
+  #idがnillでも投稿できるようにoptional: trueする
   belongs_to :company, optional: true
   belongs_to :employee, optional: true
 

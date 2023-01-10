@@ -21,7 +21,6 @@ class Companies::PostsController < ApplicationController
     @posts = Post.all
     @company = current_company
     # binding.pry
-
   end
 
   def show
