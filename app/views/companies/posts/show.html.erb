@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'users/left', user: @company %>
+      <%= render 'companies/left', user: @company %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -12,14 +12,14 @@
           <tr>
             <td>
               <%= link_to user_path(@company.id) do %>
-                <%= image_tag @company.get_profile_image(100,100) %><br>
+                <%#= image_tag @company.get_profile_image(100,100) %><br>
                 <%= @company.name %>
               <% end %>
             </td>
             <td>
-              <%= link_to book_path(@post.id) do %>
+              <%#= link_to book_path(@post.id) do %>
                   <%= @post.title %>
-              <% end %>
+              <%# end %>
             </td>
             <td>
               <%= @post.body %>

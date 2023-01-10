@@ -23,7 +23,6 @@
 
         <% if !form.object.new_record? %>
           <div class="form-group">
-          <%#= form.select :status %>
             <!--ステータスのinteger型配列の値を日本語化して、テキストとして値を返す-->
             <%= form.select :status, Employee.statuses.keys.map{|k, v| [I18n.t("enums.employees.#{k}"), k]}, {}, {class: "form-control"} %>
           </div>

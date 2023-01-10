@@ -1,7 +1,6 @@
 class Employees::PostsController < ApplicationController
   before_action :set_employee, only: %i[ show edit update destroy ]
-  
-  def
+
 
   def edit
   end

@@ -2,13 +2,13 @@
 #
 # Table name: posts
 #
-#  id         :integer          not null, primary key
-#  body       :string
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  company_id :integer
-#  user_id    :integer
+#  id          :integer          not null, primary key
+#  body        :string
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  company_id  :integer
+#  employee_id :integer
 #
 require "test_helper"
 
