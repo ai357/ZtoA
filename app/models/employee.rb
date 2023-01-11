@@ -12,6 +12,8 @@ class Employee < ApplicationRecord
   }
          
   belongs_to :company
+  has_many :posts
+  has_many :comments
   
   
   def update_without_current_password(params, *options)

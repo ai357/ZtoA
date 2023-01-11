@@ -5,6 +5,7 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :employees
+  has_many :posts
   has_many :comments
   
   

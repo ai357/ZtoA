@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="class">
+<div class="container calender_background">
+  <table class= "table" >
     <h2>カレンダー</h2>
       <%= month_calendar events: @schedules do |date, schedules| %>
         <%= date.day %>
@@ -9,6 +9,6 @@
           </div>
         <% end %>
       <% end %>
-      
-  </div>
+
+  </table>
 </div>
