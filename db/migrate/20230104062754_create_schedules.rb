@@ -4,9 +4,9 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
 
       t.timestamps
 
-      t.string :name
-      t.integer :user_id
-      t.text :to_do
+      t.string :employee_name
+      t.text :plan
+      t.integer :leave_stage
       t.datetime :start_time
     end
   end

@@ -2,13 +2,13 @@
 #
 # Table name: schedules
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  start_time :datetime
-#  to_do      :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  id            :integer          not null, primary key
+#  employee_name :string
+#  leave_stage   :integer
+#  plan          :text
+#  start_time    :datetime
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 require "test_helper"
 

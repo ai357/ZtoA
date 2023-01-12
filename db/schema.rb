@@ -80,9 +80,9 @@ ActiveRecord::Schema.define(version: 2023_01_04_062754) do
   create_table "schedules", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.integer "user_id"
-    t.text "to_do"
+    t.string "employee_name"
+    t.text "plan"
+    t.integer "leave_stage"
     t.datetime "start_time"
   end
 
