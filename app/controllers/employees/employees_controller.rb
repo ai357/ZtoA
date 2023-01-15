@@ -16,7 +16,7 @@ class Employees::EmployeesController < ApplicationController
           # expectedの入力が2回目以降の場合、updateで名前を表示させる日付を更新する
           Schedule.find_by(employee_name: current_employee.name, leave_stage: 0).update(start_time: @employee.expected - 41)
         else
-          #expecteを初めて入力した場合
+          #expecteを初めて入力した場合に実行する
           Schedule.create(employee_name: current_employee.name, leave_stage: 0, start_time: @employee.expected - 41)
         end
       end

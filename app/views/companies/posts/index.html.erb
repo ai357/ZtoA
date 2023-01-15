@@ -27,22 +27,15 @@
               <div class="card-body">
                 <blockquote class="blockquote mb-0">
                   <p><%= post.body %></p>
-                  <footer class="blockquote-footer"><%= post.created_at %> <cite title="Source Title"><% post.company.name %></cite></footer>
+                  <% if post.employee_id.nil? %>
+                    <footer class="blockquote-footer"><%= post.created_at %> <cite title="Source Title"><% post.company.name %></cite></footer>
+                  <% else %>
+                    <footer class="blockquote-footer"><%= post.created_at %> <cite title="Source Title"><% post.employee.name %></cite></footer>
+                  <% end %>
                 </blockquote>
               </div>
             </div>
           <% end %>
-
-
-
-
-
-
-
-
-
-
-
     </div>
   </div>
 </div>
