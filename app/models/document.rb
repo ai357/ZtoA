@@ -1,4 +1,6 @@
 class Document < ApplicationRecord
+  
+  belongs_to :document_master
 end
 
 # == Schema Information
@@ -7,6 +9,7 @@ end
 #
 #  id                 :integer          not null, primary key
 #  name               :string
+#  submission_status  :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  document_master_id :integer

@@ -1,4 +1,6 @@
 class DocumentMaster < ApplicationRecord
+  
+  has_many :documents
 end
 
 # == Schema Information

@@ -16,12 +16,11 @@ Rails.application.routes.draw do
 
   namespace :companies do
     resources :employees
-    get 'user/index'
-    get 'user/show'
     get "/my_page" => "company#show", as: "company"
     resources :schedules
     resources :posts
     resources :comments
+    resources :documents, only: [:index, :update]
     # root to: 'homes#top'
   end
 
