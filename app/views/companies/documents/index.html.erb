@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <h2><%= @employee.name %>さんの提出書類状況</h2>
+      <div class="row">
+        <table>
+          <% @documents.each do |document| %>
+          <tr>
+            <td>
+              <%= document.document_master.name %>
+            </td>
+            <td>
+              <% if document.submission_status == :yet %>
+                <p>未提出</p>
+              <% else %>
+                <p>不明</p>
+              <% end %>
+            </td>
+            <td>
+                <!--<%#= link_to "編集する", companies_employee_document_path, class: "btn btn-success" %>-->
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+  </div>
+</div>

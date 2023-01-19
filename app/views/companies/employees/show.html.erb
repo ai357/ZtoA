@@ -32,7 +32,7 @@
 
     <p>
       <strong>ステータス:</strong>
-      <%= link_to companies_documents_path do %>
+      <%= link_to companies_employee_documents_path(@employee) do %>
         <%= @employee.status_i18n %>
       <% end %>
     </p>

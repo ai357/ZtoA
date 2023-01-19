@@ -1,6 +1,9 @@
 class Document < ApplicationRecord
   
   belongs_to :document_master
+  belongs_to :employee
+  
+  enum submission_status: { yet:0, done:1 }
 end
 
 # == Schema Information
@@ -8,10 +11,9 @@ end
 # Table name: documents
 #
 #  id                 :integer          not null, primary key
-#  name               :string
-#  submission_status  :string
+#  submission_status  :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  document_master_id :integer
-#  user_id            :integer
+#  employee_id        :integer
 #

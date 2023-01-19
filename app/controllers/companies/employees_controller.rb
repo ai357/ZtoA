@@ -19,6 +19,10 @@ class Companies::EmployeesController < ApplicationController
     @employee = current_company.employees.build(employee_params)
 
     if @employee.save
+      DocumentMaster.all.each do |d|
+        # employeeのデータ作成の際にそのemployeeの書類を初期状態（未提出ステータス）で作成する
+       Document.create(document_master_id: d.id, employee_id: @employee.id, submission_status: 0)
+      end
       redirect_to companies_employees_url, notice: "登録しました"
     else
       flash.now[:alert] = "登録に失敗しました"

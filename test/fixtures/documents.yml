@@ -3,12 +3,11 @@
 # Table name: documents
 #
 #  id                 :integer          not null, primary key
-#  name               :string
-#  submission_status  :string
+#  submission_status  :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  document_master_id :integer
-#  user_id            :integer
+#  employee_id        :integer
 #
 
 # This model initially had no columns defined. If you add columns to the

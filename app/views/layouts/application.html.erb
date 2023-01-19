@@ -33,10 +33,10 @@
       <% end %>
     </div>
     <%= yield %>
-    <% if Rails.env.development? %>
-      <div>company:<%= current_company.inspect %></div>
-      <div>employee:<%= current_employee.inspect %></div>
-      <%= debug params %>
-    <% end %>
+    <!--<% if Rails.env.development? %>-->
+    <!--  <div>company:<%= current_company.inspect %></div>-->
+    <!--  <div>employee:<%= current_employee.inspect %></div>-->
+    <!--  <%= debug params %>-->
+    <!--<% end %>-->
   </body>
 </html>

@@ -42,10 +42,9 @@ ActiveRecord::Schema.define(version: 2023_01_04_062754) do
   create_table "documents", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.integer "employee_id"
     t.integer "document_master_id"
-    t.string "name"
-    t.string "submission_status"
+    t.integer "submission_status"
   end
 
   create_table "employees", force: :cascade do |t|

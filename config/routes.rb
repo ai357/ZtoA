@@ -15,12 +15,18 @@ Rails.application.routes.draw do
 
 
   namespace :companies do
-    resources :employees
+
+    resources :employees do
+      # do endで囲むことで親子関係ができて、documentがemployeesに属している状態
+      resources :documents, only: [:index, :update]
+    end
+    
     get "/my_page" => "company#show", as: "company"
     resources :schedules
-    resources :posts
-    resources :comments
-    resources :documents, only: [:index, :update]
+
+    resources :posts do
+      resources :comments
+    end
     # root to: 'homes#top'
   end
 

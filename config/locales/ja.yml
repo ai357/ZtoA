@@ -7,14 +7,18 @@ ja:
         maternity_leave: "出産休業中"
         childcare_leave: "育児休業中"
         childcare: "育児中"
+    document:
+      submission_status:
+        yet: "未提出"
+        done: "提出済み"
   activerecord:
     models:
-      employee: 利用者
+      employee: "利用者"
     attributes:
       employee:
-        name: 名前
-        email: メールアドレス
-        password: パスワード
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
