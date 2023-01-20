@@ -20,7 +20,7 @@ class Employees::EmployeesController < ApplicationController
           Schedule.create(employee_name: current_employee.name, leave_stage: 0, start_time: @employee.expected - 41)
         end
       end
-      
+
       if employee_params[:birth].present?
         #dayにstage_daysの数字、iに0始まりの順番が入っている（例：day=56 i=0)
         stage_days.each_with_index do |day, i|
@@ -31,12 +31,23 @@ class Employees::EmployeesController < ApplicationController
           end
         end
       end
-      
+
       redirect_to employees_employee_url, notice: "編集しました"
     else
       flash.now[:alert] = "編集に失敗しました"
       render :edit
     end
+  end
+
+  def unsubscribe
+     @user = Employee.find_by(email: params[:email])
+  end
+
+  def withdraw
+    @employee = Employee.find_by(params[:id])
+    @employee.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private
