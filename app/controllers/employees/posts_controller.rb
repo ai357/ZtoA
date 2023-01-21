@@ -7,6 +7,7 @@ class Employees::PostsController < ApplicationController
   def create
     @post = Post.new(posts_params)
     @post.employee_id = current_employee.id
+    @post.company_id = current_employee.company_id
     if @post.save
       redirect_to employees_posts_path, notice: "投稿に成功しました。"
     else
@@ -25,7 +26,9 @@ class Employees::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @company = Employee.find(@post.employee_id)
+    @employee = Employee.find_by(id: @post.employee_id)
+    @company = Company.find_by(id: @post.company_id)
+    @comment = Comment.new
   end
 
   def destroy
@@ -37,7 +40,7 @@ class Employees::PostsController < ApplicationController
  private
 
  def posts_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :employee_id, :company_id)
  end
 
 
@@ -51,4 +54,3 @@ end
 
 
 
- 

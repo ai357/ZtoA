@@ -12,14 +12,11 @@
           <tr>
             <td>
               <%= link_to user_path(@company.id) do %>
-                <%#= image_tag @company.get_profile_image(100,100) %><br>
                 <%= @company.name %>
               <% end %>
             </td>
             <td>
-              <%#= link_to book_path(@post.id) do %>
-                  <%= @post.title %>
-              <%# end %>
+              <%= @post.title %>
             </td>
             <td>
               <%= @post.body %>
@@ -31,7 +28,7 @@
             </td>
             <td>
               <% if @book.user == current_user %>
-                <%= link_to "Destroy", post_path(@post), method: :delete, class:"btn btn-danger"  %>
+                <%= link_to "Destroy", post_path(@post), method: :delete, class:"btn btn-danger" %>
               <% end %>
             </td>
           </tr>

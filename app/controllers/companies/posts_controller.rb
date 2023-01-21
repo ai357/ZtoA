@@ -7,6 +7,7 @@ class Companies::PostsController < ApplicationController
   def create
     @post = Post.new(posts_params)
     @post.company_id = current_company.id
+    @post.employee_id = current_employee.company_id
     if @post.save
       redirect_to companies_posts_path, notice: "投稿に成功しました。"
     else
@@ -37,7 +38,7 @@ class Companies::PostsController < ApplicationController
  private
 
  def posts_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :employee_id, :company_id)
  end
 
 

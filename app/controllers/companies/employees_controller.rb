@@ -4,6 +4,9 @@ class Companies::EmployeesController < ApplicationController
   def index
     # ログインしている企業に属している人（退会した人を除く）
     @employees = current_company.employees.where(is_deleted: false)
+    if params[:name]
+        @employees = Employee.where("name LIKE ?", "%#{params[:name]}%").where(is_deleted: false)
+    end
   end
 
   def show
@@ -40,7 +43,7 @@ class Companies::EmployeesController < ApplicationController
       render :edit
     end
   end
-
+  
   private
 
     def set_employee
@@ -50,4 +53,5 @@ class Companies::EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:name, :email, :password, :status)
     end
+    
 end

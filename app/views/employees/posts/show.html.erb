@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'employees/left', employee: @employee %>
+      <%#= render 'posts/left', employee: @employee %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -12,7 +12,7 @@
           <tr>
             <td>
               <%= link_to user_path(@employee.id) do %>
-                <%= image_tag @employee.get_profile_image(100,100) %><br>
+                <%#= image_tag @employee.get_profile_image(100,100) %><br>
                 <%= @employee.name %>
               <% end %>
             </td>
