@@ -5,10 +5,10 @@ end
 #
 # Table name: comments
 #
-#  id         :integer          not null, primary key
-#  contents   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  company_id :integer
-#  user_id    :integer
+#  id          :integer          not null, primary key
+#  contents    :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  company_id  :integer
+#  employee_id :integer
 #

@@ -21,6 +21,9 @@ class Employees::PostsController < ApplicationController
     @post = Post.new
     @posts = Post.all
     @employee = current_employee
+    if params[:enployee.name]
+      @posts = Post.where("name LIKE ?", "%#{params[:employee.name]}%")
+    end
     # binding.pry
   end
 
