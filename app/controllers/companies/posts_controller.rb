@@ -7,7 +7,6 @@ class Companies::PostsController < ApplicationController
   def create
     @post = Post.new(posts_params)
     @post.company_id = current_company.id
-    @post.employee_id = current_employee.company_id
     if @post.save
       redirect_to companies_posts_path, notice: "投稿に成功しました。"
     else
@@ -21,6 +20,9 @@ class Companies::PostsController < ApplicationController
     @post = Post.new
     @posts = Post.all
     @company = current_company
+    if params[:name]
+      @posts = Post.left_joins(:employee).left_joins(:company).where("employees.name LIKE ? or companies.name LIKE ?", "%#{params[:name]}%","%#{params[:name]}%")
+    end
     # binding.pry
   end
 

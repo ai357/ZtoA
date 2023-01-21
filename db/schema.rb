@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 2023_01_04_062754) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.string "extra"
+    t.string "submission"
+    t.string "status"
   end
 
   create_table "documents", force: :cascade do |t|

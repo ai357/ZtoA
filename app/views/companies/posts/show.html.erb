@@ -2,38 +2,26 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'companies/left', user: @company %>
     </div>
 
     <div class="col-md-8 offset-md-1">
+        
       <h2>Post detail</h2>
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <td>
-              <%= link_to user_path(@company.id) do %>
-                <%= @company.name %>
-              <% end %>
-            </td>
-            <td>
-              <%= @post.title %>
-            </td>
-            <td>
-              <%= @post.body %>
-            </td>
-            <td>
-              <% if @post.user == current_user %>
-                <%= link_to "Edit", edit_book_path(@post), class:"btn btn-success" %>
-              <% end %>
-            </td>
-            <td>
-              <% if @book.user == current_user %>
-                <%= link_to "Destroy", post_path(@post), method: :delete, class:"btn btn-danger" %>
-              <% end %>
-            </td>
-          </tr>
-        </thead>
-      </table>
+    <div class="card mb-2">
+      <div class="card-header">
+        <%= @post.title %>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p><%= @post.body %></p>
+          <% if @post.employee_id.present? %>
+            <footer class="h6 text-muted"><%= @post.created_at.strftime('%Y/%m/%d') %><span class="ml-3"><%= @post.employee.name %></span></footer>
+          <% elsif @post.employee_id.nil? && @post.company_id.present? %>
+            <footer class="h6 text-muted"><%= @post.created_at.strftime('%Y/%m/%d') %><span class="ml-3"><%= @post.company.name %></span></footer>
+          <% end %>
+        </blockquote>
+      </div>
     </div>
+  </div>
   </div>
 </div>
