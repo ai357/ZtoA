@@ -19,8 +19,9 @@ Rails.application.routes.draw do
     resources :employees do
       # do endで囲むことで親子関係ができて、documentがemployeesに属している状態
       resources :documents, only: [:index, :update]
+      patch "submission_status_update/:id" => "documents#submission_status_update", as: "submission_status_update"
     end
-    
+
     get "/my_page" => "company#show", as: "company"
     resources :schedules
 

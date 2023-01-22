@@ -3,19 +3,20 @@ class Employee < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :validatable
-   
-  enum status: { 
+
+  enum status: {
     before_leave: 0,
     maternity_leave: 1,
     childcare_leave: 2,
     childcare: 3
   }
-         
+
   belongs_to :company
   has_many :posts
   has_many :comments
-  
-  
+  has_many :documents, dependent: :destroy
+
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 

@@ -1,22 +1,43 @@
 <div class="container">
-  <div class="row">
+  <div class="row col-12">
     <h2><%= @employee.name %>さんの提出書類状況</h2>
-      <div class="row">
-        <table>
-          <% @documents.each do |document| %>
+      <div class="row col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                提出書類
+              </th>
+              <th>
+                添付書類
+              </th>
+              <th>
+                提出先
+              </th>
+            </tr>
+          </thead>
           <tr>
-            <td>
+          <% @documents.each do |document| %>
+            <td class=>
               <%= document.document_master.name %>
+              <%= document.document_master.name_1 %>
+            </td>
+            <td class=>
+              <%= document.document_master.extra %>
+              <%= document.document_master.extra1 %>
             </td>
             <td>
-              <% if document.submission_status == :yet %>
+              <%= document.document_master.submission %>
+            </td>
+            <td>
+              <% if document.submission_status == "yet" %>
                 <p>未提出</p>
               <% else %>
                 <p>提出済み</p>
               <% end %>
             </td>
             <td>
-                <!--<%#= link_to "編集する", companies_employee_document_path, class: "btn btn-success" %>-->
+              <%= link_to "変更", companies_employee_submission_status_update_path(document.employee_id, document.id), method: :patch, class: "btn btn-success" %>
             </td>
           </tr>
           <% end %>

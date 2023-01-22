@@ -28,6 +28,7 @@
                 <blockquote class="blockquote mb-0">
                   <p><%= post.body %></p>
                   <% if post.employee_id.present? %>
+
                     <footer class="h6 text-muted"><%= post.created_at.strftime('%Y/%m/%d') %><span class="ml-3"><%= post.employee.name %></span></footer>
                   <% elsif post.employee_id.nil? && post.company_id.present? %>
                     <footer class="h6 text-muted"><%= post.created_at.strftime('%Y/%m/%d') %><span class="ml-3"><%= post.company.name %></span></footer>

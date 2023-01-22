@@ -1,8 +1,9 @@
 <div class="container">
   <h2>My Page</h2>
+    <div class="row">
 
     <!--<p id="notice"><%#= notice %></p>-->
-
+    <div class="mt-10">
     <p>
       <strong>氏名:</strong>
       <%= @employee.name %>
@@ -39,4 +40,6 @@
 
     <%= link_to '編集する', edit_employee_path(@employee) %>
 
+  </div>
+  </div>
 </div>
