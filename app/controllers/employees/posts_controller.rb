@@ -30,7 +30,7 @@ class Employees::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @employee = Employee.find_by(id: @post.employee_id)
     @company = Company.find_by(id: @post.company_id)
-    @comment = Comment.new
+    @comments = @post.comments
   end
 
   def destroy

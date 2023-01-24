@@ -3,43 +3,39 @@
     <div class="row">
 
     <!--<p id="notice"><%#= notice %></p>-->
-    <div class="mt-10">
-    <p>
-      <strong>氏名:</strong>
-      <%= @employee.name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @employee.email %>
-    </p>
-
-    <p>
-      <strong>出産予定日:</strong>
-      <%= @employee.expected %>
-    </p>
-
-    <p>
-      <strong>出産日:</strong>
-      <%= @employee.birth %>
-    </p>
-
-    <p>
-      <strong>出生児氏名:</strong>
-      <%= @employee.baby_name %>
-    </p>
-
-    <p>
-      <strong>ステータス:</strong>
-      <%= @employee.status_i18n %>
-    </p>
-
-
-
-
-
-    <%= link_to '編集する', edit_employee_path(@employee) %>
-
-  </div>
+    <div class="mt-10, ml-10">
+      <p>
+        <strong>氏名:</strong>
+        <%= @employee.name %>
+      </p>
+  
+      <p>
+        <strong>Email:</strong>
+        <%= @employee.email %>
+      </p>
+  
+      <p>
+        <strong>出産予定日:</strong>
+        <%= @employee.expected %>
+      </p>
+  
+      <p>
+        <strong>出産日:</strong>
+        <%= @employee.birth %>
+      </p>
+  
+      <p>
+        <strong>出生児氏名:</strong>
+        <%= @employee.baby_name %>
+      </p>
+  
+      <p>
+        <strong>ステータス:</strong>
+        <%= @employee.status_i18n %>
+      </p>
+  
+      <%= link_to '編集する', edit_employee_path(@employee) %>
+  
+    </div>
   </div>
 </div>

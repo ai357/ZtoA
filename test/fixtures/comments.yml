@@ -2,12 +2,14 @@
 #
 # Table name: comments
 #
-#  id          :integer          not null, primary key
-#  contents    :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  company_id  :integer
-#  employee_id :integer
+#  id             :integer          not null, primary key
+#  comment_status :integer
+#  contents       :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  company_id     :integer
+#  employee_id    :integer
+#  post_id        :integer
 #
 
 # This model initially had no columns defined. If you add columns to the

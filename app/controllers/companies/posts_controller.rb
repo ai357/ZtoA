@@ -28,7 +28,8 @@ class Companies::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @company = Company.find(@post.company_id)
+    @comments = @post.comments
+
   end
 
   def destroy
@@ -42,6 +43,7 @@ class Companies::PostsController < ApplicationController
  def posts_params
     params.require(:post).permit(:title, :body, :employee_id, :company_id)
  end
+
 
 
 end

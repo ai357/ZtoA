@@ -7,6 +7,7 @@ class Company < ApplicationRecord
   has_many :employees
   has_many :posts
   has_many :comments
+  has_many :notifications
   
   
   

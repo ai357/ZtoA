@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>通知一覧</h2>
+    <% @notifications.each do |notification| %>
+    <tabel>
+      <tr>
+        <% if notification.notification_status == "comment" && notification.employee_id.present? && notification.employee_id != current_employee.id %>
+          <p><%= notification.created_at.strftime("%Y年%m月%d日") %>
+            <span><%= "#{notification.employee.name}さんからコメントがありました。"%></span>
+          </p>
+        <% elsif notification.notification_status == "comment" && notification.employee_id.nil? %>
+          <p><%= notification.created_at.strftime("%Y年%m月%d日") %>
+            <span><%= "#{notification.company.name}さんからコメントがありました。"%></span>
+          </p>
+        <% end %>
+      </tr>
+    </tabel>
+    <% end %>
+</div>

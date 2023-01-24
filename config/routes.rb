@@ -15,20 +15,17 @@ Rails.application.routes.draw do
 
 
   namespace :companies do
-
     resources :employees do
       # do endで囲むことで親子関係ができて、documentがemployeesに属している状態
       resources :documents, only: [:index, :update]
       patch "submission_status_update/:id" => "documents#submission_status_update", as: "submission_status_update"
     end
-
     get "/my_page" => "company#show", as: "company"
     resources :schedules
-
     resources :posts do
       resources :comments
     end
-    # root to: 'homes#top'
+    resources :notifications
   end
 
   namespace :employees do
@@ -37,13 +34,13 @@ Rails.application.routes.draw do
     get "/unsubscribe" => "employees#unsubscribe"
     patch "/withdraw" => "employees#withdraw"
     patch "/information" => "employees#update"
-    resources :posts
+    resources :notifications
+    resources :posts do
     resources :comments
-    # root to: 'homes#top'
+  end
   end
   scope module: :employees do
     resources :employees, except: [:new, :index, :show]
   end
-  #get 'homes/top'
   root to: 'homes#top'
 end

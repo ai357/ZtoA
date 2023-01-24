@@ -4,7 +4,7 @@
 
     <p id="notice"><%= notice %></p>
 
-  <div>
+  <div class="mt-20, ml-10">
     <p>
       <strong>氏名:</strong>
       <%= @employee.name %>
@@ -36,9 +36,11 @@
         <%= @employee.status_i18n %>
       <% end %>
     </p>
-
-    <%= link_to '編集する', edit_companies_employee_path(@employee) %> |
-    <%= link_to '戻る', companies_employees_path %>
+    
+    <div class="mb-10">
+      <%= link_to '編集する', edit_companies_employee_path(@employee) %> |
+      <%= link_to '戻る', companies_employees_path %>
+    </div>
   </div>
   
   <div class="row">

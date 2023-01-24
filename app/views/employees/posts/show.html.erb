@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col-md-3">
     </div>
-    
+
     <div class="col-md-8 offset-md-1">
-        
+
     <h2>Post detail</h2>
       <div class="card mb-2">
         <div class="card-header">
@@ -22,6 +22,36 @@
           </blockquote>
         </div>
       </div>
+
+       <div>
+      <%= form_with model: @comment, url: employees_post_comments_path(@post), method: :post do |f| %>
+        <%= f.text_area :contents, placeholder: "コメント" %>
+        <p><button type="submit" class="btn btn-success">投稿</button></p>
+      <% end %>
+    </div>
+
+    <div>
+      <% @comments.each do |comment| %>
+      <table>
+        <tr>
+          <p class = "mt-10">
+            <%= comment.contents %>
+            <%= comment.created_at.strftime("%Y年%m月%d日") %>
+
+            <span class="ml-3">
+              <% if comment.comment_status == "company_comment"%>
+                <%= comment.company.name %>
+              <% else %>
+                <%= comment.employee.name %>
+              <% end %>
+            </span>
+          </p>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+
+
     </div>
   </div>
 </div>

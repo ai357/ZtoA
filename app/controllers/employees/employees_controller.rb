@@ -32,7 +32,11 @@ class Employees::EmployeesController < ApplicationController
         end
       end
 
+      notification = Notification.new(employee_id: current_employee.id, company_id: current_employee.company_id, notification_status:1)
+      notification.save!
+
       redirect_to employees_employee_url, notice: "編集しました"
+
     else
       flash.now[:alert] = "編集に失敗しました"
       render :edit

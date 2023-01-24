@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :company, optional: true
   belongs_to :employee, optional: true
   has_many :comments
+  has_many :notifications
 
   validates :title, presence: true
   validates :body, presence: true, length: {maximum: 200}
