@@ -6,6 +6,9 @@
           <thead>
             <tr>
               <th>
+                ステータス
+              </th>
+              <th>
                 提出書類
               </th>
               <th>
@@ -18,6 +21,9 @@
           </thead>
           <tr>
           <% @documents.each do |document| %>
+            <td>
+              <%= document.document_master.status %>
+            </td>
             <td class=>
               <%= document.document_master.name %>
             </td>
