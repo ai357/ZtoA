@@ -13,9 +13,9 @@
 <h2 class="mt-3">New Post</h2>
 <%= form_with model: @post, url: employees_posts_path, method: :post do |f| %>
   <p class="title, mb-0">Title</p>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, size: "32x1" %>
   <p class="body, mb-0">Main</p>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, size: "35x5" %>
   <p><button type="submit" class="btn btn-success">投稿</button></p>
 <% end %>
 

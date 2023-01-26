@@ -28,6 +28,7 @@ class Companies::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @company = current_company
     @comments = @post.comments
 
   end

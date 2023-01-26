@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="row col-12">
+<div class="container-fluie mx-5">
+  <div>
     <h2><%= @employee.name %>さんの提出書類状況</h2>
       <div class="row">
-        <table class="table">
+        <table class="table table-striped">
           <thead>
             <tr>
-              <th>
+              <th class="col-1">
                 ステータス
               </th>
               <th>
@@ -17,27 +17,30 @@
               <th>
                 提出先
               </th>
+              <th>
+                状況
+              </th>
             </tr>
           </thead>
           <tr>
           <% @documents.each do |document| %>
             <td>
-              <%= document.document_master.status %>
-            </td>
-            <td class=>
-              <%= document.document_master.name %>
-            </td>
-            <td class=>
-              <%= document.document_master.extra %>
+              <h6><%= document.document_master.status %></h6>
             </td>
             <td>
-              <%= document.document_master.submission %>
+              <h5><%= document.document_master.name %></h5>
+            </td>
+            <td>
+              <h5><%= document.document_master.extra %></h5>
+            </td>
+            <td>
+              <h6><%= document.document_master.submission %></h6>
             </td>
             <td>
               <% if document.submission_status == "yet" %>
-                <p>未提出</p>
+                <span>未提出</span>
               <% else %>
-                <p>提出済み</p>
+                <span>提出済み</span>
               <% end %>
             </td>
             <td>

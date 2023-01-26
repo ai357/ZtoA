@@ -28,15 +28,16 @@ class Employees::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @employee = Employee.find_by(id: @post.employee_id)
+    @employees = Employee.find_by(id: @post.employee_id)
     @company = Company.find_by(id: @post.company_id)
     @comments = @post.comments
+    @employee = current_employee
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to employees_posts_path
   end
 
  private

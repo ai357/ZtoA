@@ -1,0 +1,19 @@
+<h2>User</h2>
+
+  <table class="table table-hover table-inverse">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= @employee.name %></th>
+      </tr>
+    </tbody>
+  </table>
+
+<div>
+  <h2>comment</h2>
+  <%= form_with model: @comment, url: employees_post_comments_path(@post), method: :post do |f| %>
+    <%= f.text_area :contents, placeholder: "コメント", size: "35x5" %>
+    <p><button type="submit" class="btn btn-success", style="padding: 0.20rem 0.75rem;">投稿</button></p>
+  <% end %>
+</div>
