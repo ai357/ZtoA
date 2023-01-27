@@ -1,18 +1,17 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-12 dflex flex right">
-        <%= link_to "社員のアカウントを発行する",  new_companies_employee_path, class:"btn btn-success" %>
+<div class="container mt-5">
+  <div class="row mt-2">
+    <div class="col-8">
+      <h2 style="display: flex; justify-content: space-between;">
+        利用者一覧
+        <span class="pl-10"><%= link_to "社員のアカウントを発行する",  new_companies_employee_path, class:"btn btn-success" %></span>
+      </h2>
     </div>
-  </div>  
-
-  <div class="row col-8">
-    <h2>利用者一覧</h2>
-    <table class="table table-hover table-inverse">
+    <table class="table table-hover table-inverse mt-3">
       <thead>
         <tr>
-          <th>employee</th>
-          <th>Status</th>
+          <th>氏名</th>
+          <th>ステータス</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -21,12 +20,16 @@
         <% @employees.each do |employee| %>
         <tr>
           <td>
-            <%= link_to companies_employee_path(employee) do %>
-              <%= employee.name %>
-            <% end %>
+            <h5>
+              <%= link_to companies_employee_path(employee) do %>
+                <%= employee.name %>
+              <% end %>
+            </h5>
           </td>
           <td>
-            <%= employee.status_i18n %>
+            <h5>
+              <%= employee.status_i18n %>
+            </h5>
           </td>
         </tr>
         <% end %>
