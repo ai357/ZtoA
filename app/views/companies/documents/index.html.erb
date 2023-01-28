@@ -1,54 +1,52 @@
 <div class="container-fluie mx-5">
-  <div>
+  <div class="mt-3">
     <h2><%= @employee.name %>さんの提出書類状況</h2>
-      <div class="row">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="col-1">
-                ステータス
-              </th>
-              <th>
-                提出書類
-              </th>
-              <th>
-                添付書類
-              </th>
-              <th>
-                提出先
-              </th>
-              <th>
-                状況
-              </th>
-            </tr>
-          </thead>
-          <tr>
-          <% @documents.each do |document| %>
-            <td>
+      <div class="row pt-3 font">
+        <div class="table table-striped">
+            <div class="row mb-2 document-header">
+              <div class="col-1">
+                <strong>ステータス</strong>
+              </div>
+              <div class="col-4">
+                <strong>提出書類</strong>
+              </div>
+              <div class="col-4">
+                <strong>添付書類</strong>
+              </div>
+              <div class="col-1">
+                <strong>提出先</strong>
+              </div>
+              <div class="col-1">
+                <strong>状況</strong>
+              </div>
+            </div>
+          <% @documents.each_with_index do |document, i| %>
+          <div class="row">
+            <div class="col-1 document-<%=i%2%>">
               <h6><%= document.document_master.status %></h6>
-            </td>
-            <td>
-              <h5><%= document.document_master.name %></h5>
-            </td>
-            <td>
-              <h5><%= document.document_master.extra %></h5>
-            </td>
-            <td>
+            </div>
+            <div class="col-4 document-<%=i%2%>">
+              <h5><%= raw(document.document_master.name.gsub(/\n/, '<br>')) %></h5>
+            </div>
+            <div class="col-4 document-<%=i%2%>">
+              <h5><%= raw(document.document_master.extra.gsub(/\n/, '<br>')) %></h5>
+            </div>
+            <div class="col-1 document-<%=i%2%>">
               <h6><%= document.document_master.submission %></h6>
-            </td>
-            <td>
+            </div>
+            <div class="col-1 document-<%=i%2%>">
               <% if document.submission_status == "yet" %>
                 <span>未提出</span>
               <% else %>
                 <span>提出済み</span>
               <% end %>
-            </td>
-            <td>
+            </div>
+            <div class="col-1 document-<%=i%2%>">
               <%= link_to "変更", companies_employee_submission_status_update_path(document.employee_id, document.id), method: :patch, class: "btn btn-success" %>
-            </td>
-          </tr>
+            </div>
+          </div>
           <% end %>
-        </table>
+        </div>
       </div>
   </div>
 </div>
