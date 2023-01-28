@@ -19,6 +19,11 @@
           <% end %>
         </li>
         <li>
+          <%= link_to employees_notifications_path, class:"nav-link text-dark" do %>
+            通知
+          <% end %>
+        </li>
+        <li>
           <%= link_to destroy_employee_session_path, method: :delete, class:"nav-link text-dark" do %>
             ログアウト
           <% end %>
