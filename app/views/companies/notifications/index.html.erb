@@ -1,8 +1,8 @@
 <div class="container">
-  <h2>通知一覧</h2>
+  <h2 class="mt-3">通知一覧</h2>
+  <div class="mt-5">
     <% @notifications.each do |notification| %>
-    <tabel>
-      <tr>
+      <div class="row mt-2">
         <% if notification.notification_status == "comment" && notification.employee_id.present?%>
           <p><%= notification.created_at.strftime("%Y年%m月%d日") %>
             <span><%= "#{notification.employee.name}さんからコメントがありました。"%></span>
@@ -12,8 +12,7 @@
             <span><%="#{notification.employee.name}さんが情報を更新しました。"%></span>
           </p>
         <% end %>
-        
-      </tr>
-    </tabel>
+      </div>
     <% end %>
+  </div>  
 </div>
