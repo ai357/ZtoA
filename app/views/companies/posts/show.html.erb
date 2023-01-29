@@ -17,9 +17,9 @@
               <% end %>
             </div>
           </div>
+          
           <div class="card-body pb-0">
             <blockquote class="blockquote">
-
               <p><%= @post.body %></p>
               <% if @post.employee_id.present? %>
                 <footer class="h6 text-muted">
@@ -36,11 +36,13 @@
 
       <div>
         <% @comments.each do |comment| %>
-        <table>
-          <tr>
-            <p class = "mt-10">
+        <div>
+          <div class="row">
+            <p class = "mt-10 ml-5">
               <%= comment.contents %>
-              <%= comment.created_at.strftime("%Y年%m月%d日") %>
+              <span>
+                <%= comment.created_at.strftime("%Y年%m月%d日") %>
+              </span>
               <span class="ml-3">
                 <% if comment.comment_status == "company_comment" %>
                   <%= comment.company.name %>
@@ -49,8 +51,8 @@
                 <% end %>
               </span>
             </p>
-          </tr>
-        </table>
+          </div>
+        </div>
         <% end %>
       </div>
 
