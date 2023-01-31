@@ -36,3 +36,32 @@ DocumentMaster.create(name:"育児休業給付金支給申請書(9ヶ月目,10�
 DocumentMaster.create(name:"育児休業給付金支給申請書(11ヶ月目,12ヶ月目)",
                       extra:"賃金の額と支払い状況を証明できるもの\n(例:賃金台帳)",
                       submission:"事業所所在地を管轄するハローワーク")
+                      
+document_masters = [
+  {status: nil, name: "", extra: "", submission: ""},
+  {status: "", name: "", extra: "", submission: ""},
+]
+document_masters.each do |document_master|
+  DocumentMaster.find_or_create_by(status: document_master[:status], name: document_master[:name]) do |r|
+    r.extra = document_master[:extra]
+    r.submission = document_master[:submission]
+  end
+end
+
+
+
+admins = [
+  {email: 'admin@example.com', password: 'passw@rd'},
+]
+
+admins.each do |admin|
+  # 一度ユーザーをメールアドレスで検索
+  admin_data = Admin.find_by(email: admin[:email])
+  # 該当ユーザーがいなければ、createする
+  if admin_data.nil?
+    Admin.create(
+      email: admin[:email],
+      password: admin[:password]
+    )
+  end
+end

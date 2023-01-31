@@ -1,0 +1,7 @@
+<div class="container">
+  <% @companies.each do |company| %>
+    <div>
+      <%= link_to company.name, admins_company_show_path(company) %>
+    </div>
+  <% end %>
+</div>

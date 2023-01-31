@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :admins, controllers: {
-    registrations: "admins/registrations",
     sessions: 'admins/sessions'
   }
-  
-  
+
+
   #企業用
   devise_for :companies, controllers: {
     registrations: "companies/registrations",
@@ -20,8 +19,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :admins do
-    get "/top" => "admin#index"
-    get "/show" => "admin#show", as: "company_show"
+    resources :companies
+  end
+
+  devise_scope :admin do
+    get '/admins', to: 'admins/sessions#new'
   end
 
 
@@ -37,7 +39,7 @@ Rails.application.routes.draw do
       resources :comments
     end
     resources :notifications
-    get "/message" => "company#message"
+    get "/message" => "messages#index"
   end
 
   namespace :employees do

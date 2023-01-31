@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Raleway&display=swap');
 @import '~bootstrap/scss/bootstrap';
 
 body {
   background-color: #FFDEAD;
+  font-family: 'Raleway', 'Kiwi Maru', serif !important;
 }
 
 h2 {
@@ -43,4 +45,7 @@ p {
   text-shadow:-1px -1px 3px #665945;
   color:#ffffff;
 }
-  
+
+.company-info {
+  font-size: calc(12px + 1vw);
+}
