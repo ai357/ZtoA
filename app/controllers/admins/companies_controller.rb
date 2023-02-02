@@ -28,14 +28,14 @@ class Admins::CompaniesController < ApplicationController
     # 会社削除
   end
 
-  # 送信済みメッセージ一覧
   def messages
+    # 送信済みメッセージ一覧
     @message = Message.new
     @messages = Message.all
   end
 
-  # メッセージの送信
   def send_message
+    # メッセージの送信
     if params[:message][:company_id] == ""
       companies = Company.all
       companies.each do |company|
@@ -50,6 +50,18 @@ class Admins::CompaniesController < ApplicationController
     end
     redirect_to admins_message_path
   end
+  
+  def unsubscribe
+     @company = Company.find_by(company: params[:company])
+  end
+
+  def withdraw
+    @company = Company.find_by(params[:id])
+    @company.update(is_deleted: true)
+    reset_session
+    redirect_to admins_companies_path
+  end
+
 
   private
 

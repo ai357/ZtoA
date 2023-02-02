@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     end
     resources :notifications
     get "/message" => "messages#index"
+    get "/unsubscribe" => "companies#unsubscribe"
+    patch "/withdraw" => "companies#withdraw"
   end
 
   namespace :employees do
