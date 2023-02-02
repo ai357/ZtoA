@@ -1,4 +1,3 @@
-
 <% if form.object.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(form.object.errors.count, "error") %> prohibited this employee from being saved:</h2>
@@ -12,7 +11,7 @@
 <% end %>
 
 <div class="form-group">
-  <%= form.label "名前" %>
+  <%= form.label "会社名" %>
   <%= form.text_field :name, class: "form-control" %>
 </div>
 
@@ -20,22 +19,6 @@
   <%= form.label :email %>
   <%= form.text_field :email, class: "form-control" %>
 </div>
-
-<div class="form-group">
-  <%= form.label "出産予定日" %>
-  <%= form.date_field :expected, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label "出産日" %>
-  <%= form.date_field :birth, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label "出生児氏名" %>
-  <%= form.text_field :baby_name, class: "form-control" %>
-</div>
-
 
 <div class="form-group text-center">
   <%= form.submit submit, class: "btn btn-outline-primary btn-block" %>

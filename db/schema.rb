@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2023_01_30_140759) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "company_id"
-    t.text "message"
+    t.string "message"
   end
 
   create_table "notifications", force: :cascade do |t|

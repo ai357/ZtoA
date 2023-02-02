@@ -4,7 +4,7 @@ class CreateMessages < ActiveRecord::Migration[6.1]
 
       t.timestamps
       t.integer :company_id
-      t.text :message
+      t.string :message
     end
   end
 end

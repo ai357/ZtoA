@@ -16,6 +16,8 @@
     <%= render 'layouts/header_company' %>
     <% elsif employee_signed_in? %>
     <%= render 'layouts/header_employee' %>
+    <% elsif admin_signed_in? %>
+    <%= render 'layouts/header_admin' %>
     <% else %>
     <%= render 'layouts/header_logout' %>
     <% end %>

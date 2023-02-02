@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # 管理者用
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :companies
+    get '/message' => 'companies#messages'
+    post '/message' => 'companies#send_message'
   end
 
   devise_scope :admin do

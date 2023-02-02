@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>メッセージ</h2>
+
+
+
+  <div>
+    <h2 class="mt-3">New message</h2>
+    <%= form_with model: @message, url: admins_message_path, method: :post do |f| %>
+      <p class="title, mb-0">Company</p>
+      <%= f.collection_select :company_id, Company.all, :id, :name, {:include_blank => true, class: "form-control"} %>
+      <p class="body, mb-0">Message</p>
+      <%= f.text_area :message, class: "form-control" %>
+      <div class="row mt-2">
+        <div class="col-12 col-md-6 mx-auto">
+          <%= f.submit '投稿', class: 'btn btn-outline-success btn-block' %>
+        </div>
+      </div>
+      <!--<p><button type="submit" class="btn btn-success">投稿</button></p>-->
+    <% end %>
+  </div>
+
+  <div>
+    <% @messages.each do |message| %>
+      <%= message.message %>
+    <% end %>
+  </div>
+</div>

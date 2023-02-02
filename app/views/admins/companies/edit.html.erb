@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="mt-4">企業情報編集</h2>
+  <div class="mt-4">
+    <%= form_with model: @company, url: admins_company_path(@company) do |form| %>
+      <%= render 'form', form: form, submit: "編集する" %>
+    <% end %>
+    <%= link_to '企業一覧へ戻る', admins_company_path(@company) %>
+  </div>
+</div>

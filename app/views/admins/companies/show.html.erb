@@ -1,7 +1,7 @@
 <div class="container">
-  <h2>企業詳細</h2>
+  <h2 class="mt-3">企業詳細</h2>
   <div class="company-info">
-    <div class="mt-3">
+    <div class="mt-4">
       企業名：<%= @company.name %>
     </div>
     <div class="mt-3">
@@ -9,5 +9,6 @@
     </div>
   </div>
 
-  <%= link_to "変更", root_path, class: "btn btn-outline-secondary mt-3 btn-sm" %>
+  <%= link_to "変更", edit_admins_company_path, class: "btn btn-outline-secondary mt-3 btn-sm" %>
+  <%= link_to "退会", %>
 </div>
