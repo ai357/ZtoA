@@ -1,4 +1,7 @@
 class Message < ApplicationRecord
+  
+  belongs_to :company
+  
 end
 
 # == Schema Information

@@ -8,6 +8,7 @@ class Company < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :notifications
+  has_many :messages
   
   
   

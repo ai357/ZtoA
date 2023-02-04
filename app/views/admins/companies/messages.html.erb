@@ -21,7 +21,30 @@
 
   <div>
     <% @messages.each do |message| %>
-      <%= message.message %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <%= message.message %>
+          <% if message.company_id.present? %>
+            <footer class="h6 text-muted">
+              <%= message.created_at.strftime('%Y/%m/%d') %>
+              <span class="ml-3">
+                <%= message.company.name %>
+              </span>
+            </footer>
+          <% else %>
+            <footer class="h6 text-muted">
+              <%= message.created_at.strftime('%Y/%m/%d') %>
+              <span class="ml-3">
+                all
+              </span>
+            </footer>
+          <% end %>
+        </blockquote>
+      </div>
     <% end %>
+    </div>
+
+
   </div>
 </div>

@@ -32,6 +32,7 @@ class Admins::CompaniesController < ApplicationController
     # 送信済みメッセージ一覧
     @message = Message.new
     @messages = Message.all
+    # @company = Company.find(params[:id])
   end
 
   def send_message

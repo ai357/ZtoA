@@ -2,9 +2,16 @@
   <h2 class="mt-3">お知らせ</h2>
   <div class="mt-5">
     <% @messages.each do |message| %>
-      <pre>
-        <%= massage.inspect %>
-      </pre>
+    <div class="card mb-2">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+        <%= message.message %>
+        </blockquote>
+        <footer class="h6 text-muted">
+          <%= message.created_at.strftime('%Y/%m/%d') %>
+        </footer>  
+      </div>
     <% end %>
+    </div>
   </div>
 </div>

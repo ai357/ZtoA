@@ -1,7 +1,7 @@
 class Companies::MessagesController < ApplicationController
 
   def index
-    @messages = Message.all
+    @messages = current_company.messages
   end
 
 end
