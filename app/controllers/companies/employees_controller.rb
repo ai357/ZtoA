@@ -3,7 +3,7 @@ class Companies::EmployeesController < ApplicationController
 
   def index
     # ログインしている企業に属している人（退会した人を除く）
-    @employees = current_company.employees.where(is_deleted: false)
+    @employees = current_company.employees.where(is_deleted: false).page(params[:page]).per(10)
     if params[:name]
         @employees = Employee.where("name LIKE ?", "%#{params[:name]}%").where(is_deleted: false)
     end

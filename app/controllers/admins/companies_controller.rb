@@ -4,7 +4,7 @@ class Admins::CompaniesController < ApplicationController
 
   def index
      # 会社一覧
-     @companies = Company.all
+     @companies = Company.all.page(params[:page]).per(10)
   end
 
   def show
@@ -31,8 +31,9 @@ class Admins::CompaniesController < ApplicationController
   def messages
     # 送信済みメッセージ一覧
     @message = Message.new
-    @messages = Message.all
-    # @company = Company.find(params[:id])
+    # @messages = Message.all.page(params[:page]).per(10)
+    @messages = Message.order(:created_at).group(:message).page(params[:page]).per(5)
+    # binding.pry
   end
 
   def send_message
