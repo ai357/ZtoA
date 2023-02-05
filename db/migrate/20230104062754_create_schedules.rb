@@ -5,6 +5,7 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.timestamps
 
       t.string :employee_name
+      t.integer :employee_id
       t.text :plan
       t.integer :leave_stage
       t.datetime :start_time

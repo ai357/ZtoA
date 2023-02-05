@@ -36,15 +36,15 @@
         <%= @employee.status_i18n %>
       <% end %>
     </p>
-    
+
     <div class="mt-5">
       <%= link_to '戻る', companies_employees_path, class: "ml-2" %>|
       <%= link_to '編集する', edit_companies_employee_path(@employee), class: "mr-2" %>
     </div>
   </div>
-  
+
   <div class="row mt-5 ml-2">
-    <%= link_to '退会', employees_unsubscribe_path, class: "btn btn-danger" %>
+    <%= link_to '退会', employees_unsubscribe_path, class: "btn btn-outline-danger" %>
   </div>
-  
+
 </div>

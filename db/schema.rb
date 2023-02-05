@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2023_01_30_140759) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "employee_name"
+    t.integer "employee_id"
     t.text "plan"
     t.integer "leave_stage"
     t.datetime "start_time"

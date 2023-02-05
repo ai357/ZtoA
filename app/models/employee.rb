@@ -16,7 +16,7 @@ class Employee < ApplicationRecord
   has_many :comments
   has_many :documents, dependent: :destroy
   has_many :notifications
-
+  # has_many :schedules, dependent: :destroy
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)

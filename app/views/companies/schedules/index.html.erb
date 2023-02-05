@@ -7,7 +7,7 @@
           <div>
             <!--どの利用者の詳細ページに遷移するかを（）内に定義する-->
             <%#= link_to schedule.employee_name, companies_employee_path(Employee.find_by(name: schedule.employee_name)) %>
-            <a href="/companies/employees/<%= Employee.find_by(name: schedule.employee_name).id %>"
+            <a href="/companies/employees/<%= @employee.find_by(name: schedule.employee_name).id %>"
                 data-toggle="tooltip" data-placement="right" title="<%= Schedule.tooltip(schedule.leave_stage) %>">
               <%= schedule.employee_name %>
             </a>

@@ -13,6 +13,8 @@ enum leave_stage: {
   childcare_leave_last: 8,  #ステータスが育児中に代わる
 }
 
+# belongs_to :employees
+
 def self.tooltip(stage)
   tooltip_word = {
     "leave_day" => "産前休業",
@@ -41,4 +43,5 @@ end
 #  start_time    :datetime
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  employee_id   :integer
 #
