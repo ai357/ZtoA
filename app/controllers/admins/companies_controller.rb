@@ -1,10 +1,10 @@
 class Admins::CompaniesController < ApplicationController
-
+  before_action :authenticate_admin!
 
 
   def index
      # 会社一覧
-     @companies = Company.all.page(params[:page]).per(10)
+     @companies = Company.where(is_deleted: false).page(params[:page]).per(10)
   end
 
   def show
@@ -24,8 +24,15 @@ class Admins::CompaniesController < ApplicationController
     redirect_to admins_company_path(@company)
   end
 
+  def unsubscribe
+     @company = Company.find_by(params[:id])
+  end
+
   def destroy
     # 会社削除
+    @company = Company.find_by(params[:id])
+    @company.update(is_deleted: true)
+    redirect_to admins_companies_path
   end
 
   def messages
@@ -45,25 +52,13 @@ class Admins::CompaniesController < ApplicationController
         @message.company_id = company.id
         @message.save
       end
-      
+
     else
       @message = Message.new(message_params)
       @message.save
     end
     redirect_to admins_message_path
   end
-  
-  def unsubscribe
-     @company = Company.find_by(company: params[:company])
-  end
-
-  def withdraw
-    @company = Company.find_by(params[:id])
-    @company.update(is_deleted: true)
-    reset_session
-    redirect_to admins_companies_path
-  end
-
 
   private
 

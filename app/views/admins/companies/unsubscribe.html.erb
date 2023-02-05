@@ -8,8 +8,8 @@
       <p>退会する場合は、「退会する」をクリックしてください。</p>
 
       <div class="mt-5">
-        <%= link_to "退会しない", companies_employees_path, class: "btn btn-outline-primary btn-block" %>
-        <%= link_to "退会する", companies_withdraw_path, method: :patch, class: "btn btn-outline-danger btn-block" %>
+        <%= link_to "退会しない", admins_companies_path, class: "btn btn-outline-primary btn-block" %>
+        <%= link_to "退会する", admins_company_path(@company), method: :delete, class: "btn btn-outline-danger btn-block" %>
       </div>
     </div>
   </div>

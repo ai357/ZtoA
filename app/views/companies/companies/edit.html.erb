@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="mt-4">詳細情報編集</h2>
+  <div class="mt-4">
+    <%= form_with model: @company, url: companies_company_update_path, method: :patch do |form| %>
+      <%= render 'companies/companies/form', form: form, submit: "編集する" %>
+    <% end %>
+    <%= link_to 'My pageへ戻る', companies_company_path %>
+  </div>
+</div>

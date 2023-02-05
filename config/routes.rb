@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :admins do
-    resources :companies
+    resources :companies do
+      get "/unsubscribe" => "companies#unsubscribe"
+    end
     get '/message' => 'companies#messages'
     post '/message' => 'companies#send_message'
   end
@@ -36,7 +38,9 @@ Rails.application.routes.draw do
       resources :documents, only: [:index, :update]
       patch "submission_status_update/:id" => "documents#submission_status_update", as: "submission_status_update"
     end
-    get "/my_page" => "company#show", as: "company"
+    get "/my_page" => "companies#show", as: "company"
+    get "/company_edit" => "companies#edit"
+    patch "/company_update" => "companies#update"
     resources :schedules
     resources :posts do
       resources :comments

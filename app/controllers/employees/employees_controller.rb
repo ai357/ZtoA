@@ -1,4 +1,5 @@
 class Employees::EmployeesController < ApplicationController
+  before_action :authenticate_employee!
   #ログインしているユーザー(current-employee)かつparamsIDを持っているレコード（@Employee)が一致していないと見れないページ
   before_action :set_employee, only: %i[ show edit update ]
   #before_action :correct_employee, only: %i[ show edit update ]

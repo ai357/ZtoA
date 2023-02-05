@@ -34,7 +34,7 @@ class DeviseCreateCompanies < ActiveRecord::Migration[6.1]
 
 
       t.timestamps null: false
-      
+      t.boolean :is_deleted, null: false, default: false
       t.string :name
     end
 
