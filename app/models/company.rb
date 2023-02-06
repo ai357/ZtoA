@@ -11,6 +11,7 @@ class Company < ApplicationRecord
   has_many :messages
   
   
+
 end
 
 # == Schema Information

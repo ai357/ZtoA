@@ -52,7 +52,7 @@ class Employees::EmployeesController < ApplicationController
     @employee = Employee.find_by(params[:id])
     @employee.update(is_deleted: true)
     reset_session
-    redirect_to root_path
+    redirect_to companies_employees_path
   end
 
   private
