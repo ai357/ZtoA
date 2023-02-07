@@ -30,6 +30,9 @@ class Employee < ApplicationRecord
     clean_up_passwords
     result
   end
+  
+  
+  
 end
 
 # == Schema Information

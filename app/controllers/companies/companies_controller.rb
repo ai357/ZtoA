@@ -1,5 +1,5 @@
 class Companies::CompaniesController < ApplicationController
-  before_action :authenticate_company!
+  before_action :authenticate_company!, except: %i[ unsubscribe withdraw ]
   
   def show
     @company = current_company
@@ -16,15 +16,15 @@ class Companies::CompaniesController < ApplicationController
   end
 
   def unsubscribe
-     @company = Company.find_by(params[:id])
+    @company = current_company
   end
 
   def withdraw
-    @company = Company.find_by(params[:id])
+    @company = current_company
     @company.update(is_deleted: true)
     reset_session
-    redirect_to new_company_session
-  end
+    redirect_to root_path
+  end  
 
   private
 

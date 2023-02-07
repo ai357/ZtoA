@@ -25,13 +25,15 @@ class Admins::CompaniesController < ApplicationController
   end
 
   def unsubscribe
-     @company = Company.find_by(params[:id])
+     @company = Company.find(params[:company_id])
+    # binding.pry
   end
 
   def destroy
     # 会社削除
-    @company = Company.find_by(params[:id])
+    @company = Company.find(params[:id])
     @company.update(is_deleted: true)
+    # binding.pry
     redirect_to admins_companies_path
   end
 

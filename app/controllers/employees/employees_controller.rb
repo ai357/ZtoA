@@ -1,10 +1,11 @@
 class Employees::EmployeesController < ApplicationController
-  before_action :authenticate_employee!
+  before_action :authenticate_employee!, except: %i[ unsubscribe withdraw ]
   #ログインしているユーザー(current-employee)かつparamsIDを持っているレコード（@Employee)が一致していないと見れないページ
   before_action :set_employee, only: %i[ show edit update ]
   #before_action :correct_employee, only: %i[ show edit update ]
 
   def show
+    
   end
 
   def update
@@ -45,13 +46,14 @@ class Employees::EmployeesController < ApplicationController
   end
 
   def unsubscribe
-     @user = Employee.find_by(email: params[:email])
+     @employee = Employee.find(params[:format])
   end
 
   def withdraw
-    @employee = Employee.find_by(params[:id])
+    @employee = Employee.find(params[:format])
     @employee.update(is_deleted: true)
-    reset_session
+    # binding.pry
+    # reset_session
     redirect_to companies_employees_path
   end
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Companies::SessionsController < Devise::SessionsController
+  before_action :company_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -32,16 +33,12 @@ class Companies::SessionsController < Devise::SessionsController
   protected
   # 退会しているかを判断するメソッド
   def company_state
-    ## 【処理内容1】 入力されたemailからアカウントを1件取得
-    @company = Companies.find_by(email: params[:companies][:email])
-    ## アカウントを取得できなかった場合、このメソッドを終了する
+    @company = Company.find_by(email: params[:company][:email])
     return if !@company
-    ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-    if @company.valid_password?(params[:companies][:password])
-      ## 【処理内容3】
-      if @customer.is_deleted == true
+    if @company.valid_password?(params[:company][:password])
+      if @company.is_deleted == true
         redirect_to root_path
-      else @customer.is_deleted == false
+      else @company.is_deleted == false
       end
     end
   end

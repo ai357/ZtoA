@@ -11,6 +11,7 @@ class Companies::EmployeesController < ApplicationController
   end
 
   def show
+    @employee_name = Employee.find(params[:id])
   end
 
   def new

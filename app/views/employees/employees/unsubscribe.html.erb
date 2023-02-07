@@ -6,9 +6,8 @@
             <p>退会すると、会員登録情報や</p></br>
             <p>これまでの履歴が閲覧できなくなります。</p></br>
             <p>退会する場合は、「退会する」をクリックしてください。</p>
-
             <%= link_to "退会しない", companies_employees_path, class: "btn btn-primary" %>
-            <%= link_to "退会する", employees_withdraw_path, method: :patch, class: "btn btn-danger" %>
+            <%= link_to "退会する", employees_withdraw_path(@employee), method: :patch, class: "btn btn-danger" %>
 
         </div>
     </div>
