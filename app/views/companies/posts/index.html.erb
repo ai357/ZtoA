@@ -16,7 +16,8 @@
 
     <div class="col-md-8 offset-md-1">
       <h2>Posts</h2>
-          <% @posts.each do |post| %>
+      　　<!--to_aで配列にし、concatで配列を繋いで一つの配列にする-->
+          <% @posts.to_a.concat(@employee_posts.to_a).each do |post| %>
             <div class="card mb-2">
               <%= link_to companies_post_path(post.id) do %>
                 <div class="card-header">

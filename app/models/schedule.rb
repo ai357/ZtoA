@@ -2,7 +2,7 @@ class Schedule < ApplicationRecord
 
 
 enum leave_stage: {
-  leave_day: 0, 
+  leave_day: 0,
   birth_day: 1,
   childcare_leave_1month: 2,
   childcare_leave_3month: 3,
@@ -13,7 +13,7 @@ enum leave_stage: {
   childcare_leave_last: 8,  #ステータスが育児中に代わる
 }
 
-# belongs_to :employees
+ belongs_to :employee
 
 def self.tooltip(stage)
   tooltip_word = {
