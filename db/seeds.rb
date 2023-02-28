@@ -25,7 +25,6 @@
 end
 
 
-
 admins = [
   {email: 'admin@example.com', password: 'passw@rd'},
 ]
@@ -41,3 +40,32 @@ admins.each do |admin|
     )
   end
 end
+
+
+ Company.create!(
+   [
+     {id: 1, email: 'z.inc@ztoa.com', name: 'Z.inc', password: 'zzzzzz'},
+     {id: 2, email: 'x.inc@ztoa.com', name: 'X.inc', password: 'xxxxxx'}
+   ]
+ )
+
+# Employee.create!(
+#   [
+#     {id: 1, created_at: "2023-01-09 05:58:54", company_id: 1, email: 'mmm@m', name: '桑野萌々香', password: 'yyyyyy', expected: '2023/1/1', birth: '2023/1/3', baby_name: '桃太' },
+#     {id: 2, company_id: 1, email: 'sss@s', name: '山中清夏', password: 'ssssss'}
+#   ]
+# )
+
+# Post.create!(
+#   [
+#     {id: 1, company_id: 1, employee_id: 1, title: '産まれました', body: '産まれました。母子ともに健康です。'},
+#     {id: 2, company_id: 1, employee_id: 2, title: 'おすすめ', body: '赤ちゃんグッズ○○おすすめです！'}
+#   ]
+# ) 
+  
+# Comment.create!(
+#   [
+#     {company_id: 1, employee_id: 2, post_id: 1, contents: 'おめでとうございます！' },
+#     {company_id: 1, employee_id: nil, post_id: 1, contents: 'おめでとうございます！' }
+#   ]
+# )
