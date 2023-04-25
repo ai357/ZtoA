@@ -18,13 +18,14 @@ class Admins::CompaniesController < ApplicationController
   end
 
   def update
-    # 会社編集
+    # 会社情報更新
     @company = Company.find(params[:id])
     @company.update(company_params)
     redirect_to admins_company_path(@company)
   end
 
   def unsubscribe
+    #会社退会
      @company = Company.find(params[:company_id])
     # binding.pry
   end

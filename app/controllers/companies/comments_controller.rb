@@ -1,6 +1,7 @@
 class Companies::CommentsController < ApplicationController
 
   def create
+    #投稿へのコメント
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
     @comment.comment_status = 0
