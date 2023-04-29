@@ -25,6 +25,7 @@
 
   <body>
     <div class="container">
+      <!--application_helper参照-->
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= bootstrap_alert(key) %> alert-dismissible fade show">
           <span><%= value %></span>
