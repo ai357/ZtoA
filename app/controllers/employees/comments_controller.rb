@@ -4,8 +4,6 @@ class Employees::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.comment_status = 1
     @comment.employee_id = current_employee.id
-    #@comment.company_id = current_employee.company.id
-    
     if @comment.save!
       notification = Notification.new(employee_id: current_employee.id, post_id: @comment.post_id, company_id: current_employee.company.id, notification_status:0)
       notification.save!
