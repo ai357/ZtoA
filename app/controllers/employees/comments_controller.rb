@@ -2,6 +2,7 @@ class Employees::CommentsController < ApplicationController
 
  def create
     @comment = Comment.new(comment_params)
+    # modelにてenumでstatus設定
     @comment.comment_status = 1
     @comment.employee_id = current_employee.id
     if @comment.save!
