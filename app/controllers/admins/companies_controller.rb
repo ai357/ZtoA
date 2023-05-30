@@ -50,6 +50,7 @@ class Admins::CompaniesController < ApplicationController
     # メッセージの送信
     if params[:message][:company_id] == ""
       companies = Company.all
+      # eachで全companyにメッセージを作成
       companies.each do |company|
         @message = Message.new(message_params)
         @message.company_id = company.id
