@@ -54,6 +54,7 @@ class Admins::CompaniesController < ApplicationController
       companies.each do |company|
         @message = Message.new(message_params)
         @message.company_id = company.id
+        # 保存を忘れないように！
         @message.save
       end
 
